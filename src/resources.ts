@@ -6,15 +6,17 @@ import { BadInputError, ValidationError, ValidationErrorCode } from './error';
 import { Platform, prettyPlatform } from './platform';
 
 export const enum ResourceType {
-  ADAPTIVE_ICON = 'adaptive-icon',
-  ICON = 'icon',
-  SPLASH = 'splash',
+    ADAPTIVE_ICON = 'adaptive-icon',
+    ICON = 'icon',
+    SPLASH = 'splash',
+    SPLASH_DARK = 'splashDark',
 }
 
 export const RESOURCE_TYPES: readonly ResourceType[] = [
-  ResourceType.ADAPTIVE_ICON,
-  ResourceType.ICON,
-  ResourceType.SPLASH,
+    ResourceType.ADAPTIVE_ICON,
+    ResourceType.ICON,
+    ResourceType.SPLASH,
+    ResourceType.SPLASH_DARK,
 ];
 
 export const enum SourceType {
@@ -319,29 +321,32 @@ export const enum Format {
 }
 
 export const enum Orientation {
-  LANDSCAPE = 'landscape',
-  PORTRAIT = 'portrait',
+    LANDSCAPE = 'landscape',
+    PORTRAIT = 'portrait',
+    DEFAULT = 'default'
 }
 
 export const enum Density {
-  LDPI = 'ldpi',
-  MDPI = 'mdpi',
-  HDPI = 'hdpi',
-  XHDPI = 'xhdpi',
-  XXHDPI = 'xxhdpi',
-  XXXHDPI = 'xxxhdpi',
-  LAND_LDPI = 'land-ldpi',
-  LAND_MDPI = 'land-mdpi',
-  LAND_HDPI = 'land-hdpi',
-  LAND_XHDPI = 'land-xhdpi',
-  LAND_XXHDPI = 'land-xxhdpi',
-  LAND_XXXHDPI = 'land-xxxhdpi',
-  PORT_LDPI = 'port-ldpi',
-  PORT_MDPI = 'port-mdpi',
-  PORT_HDPI = 'port-hdpi',
-  PORT_XHDPI = 'port-xhdpi',
-  PORT_XXHDPI = 'port-xxhdpi',
-  PORT_XXXHDPI = 'port-xxxhdpi',
+    DEFAULT = 'default',
+    DEFAULT_NIGHT = 'defaultNight',
+    LDPI = 'ldpi',
+    MDPI = 'mdpi',
+    HDPI = 'hdpi',
+    XHDPI = 'xhdpi',
+    XXHDPI = 'xxhdpi',
+    XXXHDPI = 'xxxhdpi',
+    LAND_LDPI = 'land-ldpi',
+    LAND_MDPI = 'land-mdpi',
+    LAND_HDPI = 'land-hdpi',
+    LAND_XHDPI = 'land-xhdpi',
+    LAND_XXHDPI = 'land-xxhdpi',
+    LAND_XXXHDPI = 'land-xxxhdpi',
+    PORT_LDPI = 'port-ldpi',
+    PORT_MDPI = 'port-mdpi',
+    PORT_HDPI = 'port-hdpi',
+    PORT_XHDPI = 'port-xhdpi',
+    PORT_XXHDPI = 'port-xxhdpi',
+    PORT_XXXHDPI = 'port-xxxhdpi',
 }
 
 /**
@@ -855,6 +860,28 @@ export const ANDROID_ICON_RESOURCES: readonly AndroidIconResourceConfig[] = [
   ANDROID_XXXHDPI_ICON,
 ];
 
+export const ANDROID_SCREEN: AndroidSplashResourceConfig = {
+    platform: Platform.ANDROID,
+    type: ResourceType.SPLASH,
+    src: 'drawable-default-screen.png',
+    format: Format.PNG,
+    width: 320,
+    height: 240,
+    density: Density.DEFAULT,
+    orientation: Orientation.DEFAULT,
+};
+
+export const ANDROID_SCREEN_DARK: AndroidSplashResourceConfig = {
+    platform: Platform.ANDROID,
+    type: ResourceType.SPLASH,
+    src: 'drawable-default-dark-screen.png',
+    format: Format.PNG,
+    width: 320,
+    height: 240,
+    density: Density.DEFAULT_NIGHT,
+    orientation: Orientation.DEFAULT,
+};
+
 export const ANDROID_LAND_LDPI_SCREEN: AndroidSplashResourceConfig = {
   platform: Platform.ANDROID,
   type: ResourceType.SPLASH,
@@ -988,20 +1015,22 @@ export const ANDROID_PORT_XXXHDPI_SCREEN: AndroidSplashResourceConfig = {
 };
 
 export const ANDROID_SPLASH_RESOURCES: readonly AndroidSplashResourceConfig[] =
-  [
-    ANDROID_LAND_LDPI_SCREEN,
-    ANDROID_LAND_MDPI_SCREEN,
-    ANDROID_LAND_HDPI_SCREEN,
-    ANDROID_LAND_XHDPI_SCREEN,
-    ANDROID_LAND_XXHDPI_SCREEN,
-    ANDROID_LAND_XXXHDPI_SCREEN,
-    ANDROID_PORT_LDPI_SCREEN,
-    ANDROID_PORT_MDPI_SCREEN,
-    ANDROID_PORT_HDPI_SCREEN,
-    ANDROID_PORT_XHDPI_SCREEN,
-    ANDROID_PORT_XXHDPI_SCREEN,
-    ANDROID_PORT_XXXHDPI_SCREEN,
-  ];
+    [
+        ANDROID_SCREEN,
+        ANDROID_SCREEN_DARK,
+        ANDROID_LAND_LDPI_SCREEN,
+        ANDROID_LAND_MDPI_SCREEN,
+        ANDROID_LAND_HDPI_SCREEN,
+        ANDROID_LAND_XHDPI_SCREEN,
+        ANDROID_LAND_XXHDPI_SCREEN,
+        ANDROID_LAND_XXXHDPI_SCREEN,
+        ANDROID_PORT_LDPI_SCREEN,
+        ANDROID_PORT_MDPI_SCREEN,
+        ANDROID_PORT_HDPI_SCREEN,
+        ANDROID_PORT_XHDPI_SCREEN,
+        ANDROID_PORT_XXHDPI_SCREEN,
+        ANDROID_PORT_XXXHDPI_SCREEN,
+    ];
 
 /**
  * 20pt Icon
