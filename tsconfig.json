@@ -7,19 +7,14 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
+    "useUnknownInCatchVariables": false,
+    "noUnusedLocals": false,
     "outDir": "./dist",
     "pretty": true,
     "strict": true,
     "target": "es2019",
-    "lib": [
-      "es2019"
-    ]
+    "lib": ["dom", "es2019"]
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "src/**/__tests__/*.ts"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["src/**/__tests__/*.ts"]
 }

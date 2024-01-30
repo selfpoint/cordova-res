@@ -307,8 +307,8 @@ namespace CordovaRes {
             e instanceof BaseError
               ? `ERROR:\t${e.toString()}`
               : e.stack
-              ? e.stack
-              : String(e)
+                ? e.stack
+                : String(e)
           }\n`,
         );
       }

@@ -14,16 +14,20 @@
     "cordova-res": "./bin/cordova-res"
   },
   "scripts": {
-    "prepare": "husky install",
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest --maxWorkers=4",
     "lint": "npm run eslint && npm run prettier -- --check",
-    "fmt": "npm run prettier -- --write",
+    "fmt": "npm run eslint -- --fix && npm run prettier -- --write",
     "eslint": "eslint . --ext ts",
-    "prettier": "prettier 'src/**/*.ts'",
+    "prettier": "prettier src/**/*.ts",
     "release": "np",
     "prepublishOnly": "npm run build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier -- --check"
+    }
   },
   "prettier": "@ionic/prettier-config",
   "eslintConfig": {
@@ -54,25 +58,25 @@
     "@ionic/utils-array": "2.1.6",
     "@ionic/utils-fs": "3.1.7",
     "debug": "4.3.4",
-    "elementtree": "^0.1.7",
-    "sharp": "0.32.6",
+    "elementtree": "0.1.7",
+    "sharp": "0.33.2",
     "tslib": "2.6.2"
   },
   "devDependencies": {
     "@ionic/eslint-config": "0.3.0",
-    "@ionic/prettier-config": "4.0.0",
-    "@types/debug": "4.1.8",
-    "@types/elementtree": "0.1.0",
-    "@types/fs-extra": "9.0.13",
-    "@types/jest": "27.5.2",
-    "@types/node": "14.18.63",
+    "@ionic/prettier-config": "1.0.1",
+    "@types/debug": "4.1.12",
+    "@types/fs-extra": "8.1.5",
+    "@types/jest": "26.0.24",
+    "@types/node": "10.17.60",
     "@types/sharp": "0.32.0",
     "eslint": "7.32.0",
-    "husky": "^8.0.1",
-    "jest": "27.5.1",
+    "eslint-plugin-import": "2.29.1",
+    "husky": "4.3.8",
+    "jest": "25.5.4",
     "np": "7.7.0",
-    "prettier": "3.0.3",
-    "ts-jest": "27.1.5",
-    "typescript": "3.9.10"
+    "prettier": "3.2.4",
+    "ts-jest": "29.1.2",
+    "typescript": "4.9.5"
   }
 }
