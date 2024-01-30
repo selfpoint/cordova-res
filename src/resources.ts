@@ -866,7 +866,7 @@ export const ANDROID_SCREEN: AndroidSplashResourceConfig = {
     src: 'drawable-default-screen.png',
     format: Format.PNG,
     width: 320,
-    height: 240,
+    height: 480,
     density: Density.DEFAULT,
     orientation: Orientation.DEFAULT,
 };
